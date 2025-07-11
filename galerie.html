@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galerie - Bye Room</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+         <img src="images/logo.png" alt="Logo Bye Room" class="logo-img" />
+         <span>Bye Room</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="galerie.html" class="active">Galerie</a>
+        <a href="contact.html">Contact</a>
+        <a href="commander.html">Commander</a>
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <h1>Nos Réalisations</h1>
+    </div>
+
+    <!-- Loader -->
+<div id="loader">
+  <img src="images/logo.png" alt="Chargement...">
+</div>
+
+  </header>
+
+
+<section class="galerie-section scrol">
+  <h2>Galerie des projets</h2>
+  <div class="galerie-grid">
+  <a href="#img1" class="image-wrapper">
+   <img src="images/projet1.jpg" alt="Projet 1" />
+   <div class="overlay"></div>
+   <div class="overlay-text">Voir projet 1</div>
+  </a>
+
+
+  <a href="#img2" class="image-wrapper">
+   <img src="images/projet2.jpg" alt="Projet 2" />
+   <div class="overlay"></div>
+   <div class="overlay-text">Projet 2</div>
+  </a>
+
+  <a href="#img3" class="image-wrapper">
+   <img src="images/projet3.jpg" alt="Projet 3" />
+   <div class="overlay"></div>
+   <div class="overlay-text">Projet 3</div>
+  </a>
+
+  <a href="#img4" class="image-wrapper">
+   <img src="images/projet4.jpg" alt="Projet 4" />
+   <div class="overlay"></div>
+   <div class="overlay-text">Projet 4</div>
+  </a>
+
+  <a href="#img5" class="image-wrapper">
+   <img src="images/projet5.jpg" alt="Projet 5" />
+   <div class="overlay"></div>
+   <div class="overlay-text">Projet 5</div>
+  </a>
+
+  <a href="#img6" class="image-wrapper">
+   <img src="images/projet6.jpg" alt="Projet 6" />
+   <div class="overlay"></div>
+   <div class="overlay-text">Projet 6</div>
+  </a>
+</div>
+
+  <!-- Lightbox full-screen -->
+<div class="lightbox" id="img1">
+  <a href="#!" class="close">×</a>
+  <a href="#img6" class="prev">←</a>
+  <a href="#img2" class="next">→</a>
+  <img src="images/projet1.jpg" alt="">
+  <p class="caption">immeuble à Màarif</p>
+</div>
+
+  <div class="lightbox" id="img2">
+    <a href="#!" class="close">×</a>
+    <a href="#img1" class="prev">←</a>
+    <a href="#img3" class="next">→</a>
+    <img src="images/projet2.jpg" alt="">
+    <p class="caption">Carrefour label vie</p>
+  </div>
+  <div class="lightbox" id="img3">
+    <a href="#!" class="close">×</a>
+    <a href="#img2" class="prev">←</a>
+    <a href="#img4" class="next">→</a>
+    <img src="images/projet3.jpg" alt="">
+  </div>
+  <div class="lightbox" id="img4">
+    <a href="#!" class="close">×</a>
+    <a href="#img3" class="prev">←</a>
+    <a href="#img5" class="next">→</a>
+    <img src="images/projet4.jpg" alt="">
+  </div>
+  <div class="lightbox" id="img5">
+    <a href="#!" class="close">×</a>
+    <a href="#img4" class="prev">←</a>
+    <a href="#img6" class="next">→</a>
+    <img src="images/projet5.jpg" alt="">
+  </div>
+  <div class="lightbox" id="img6">
+    <a href="#!" class="close">×</a>
+    <a href="#img5" class="prev">←</a>
+    <a href="#img1" class="next">→</a>
+    <img src="images/projet6.jpg" alt="">
+  </div>
+</section>
+
+  <a href="#top" class="back-to-top">↑</a>
+  <footer>
+    <p>&copy; 2025 Bye Room. Tous droits réservés.</p>
+  </footer>
+
+</body>
+</html>

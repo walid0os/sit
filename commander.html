@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demande de Devis - Bye Room</title>
+  <link rel="stylesheet" href="style.css" /> <!-- إذا عندك ملف CSS مشترك -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+     emailjs.init("");
+  </script>
+</head>
+<body id="top">
+
+  <!-- ممكن تزيد هنا navbar بنفس الطريقة لي عندك ف index.html -->
+
+<header class="hero">
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="Logo Bye Room" class="logo-img" /><span>Bye Room</span>
+        </a>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="contact.html">Contact</a>
+        <a href="commander.html" class="active">Commander</a>
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+      </div>
+    </nav>
+        <div class="hero-content">
+        <h1>Commander Produit(s)</h1>
+        <p>Nous somme ouverts pour recevoir vos commande.</p>
+        </div>
+        <!-- Loader -->
+        <div id="loader">
+          <img src="images/logo.png" alt="Chargement...">
+        </div>
+</header>
+
+<section class="devis-section">
+  <h2>Bon de commande</h2>
+  <p>Envoyer un email oú tu décrive ton commande tu peut joiner un bon de commande.</p>
+  <a href="https://mail.google.com/mail/?view=cm&to=byeroom@gmail.com" target="_blank" class="btn-secondary btn-animated">Décrire votre commande</a>
+</section>
+
+
+    <footer>
+        <p>&copy; 2025 Bye Room. Tous droits réservés.</p>
+    </footer>
+  <a href="#top" class="back-to-top">↑</a>
+</body>
+</html>

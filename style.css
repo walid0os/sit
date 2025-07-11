@@ -1,0 +1,883 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* === Variables de couleur === */
+:root {
+  --color-primary: #005a9c;
+  --color-secondary: #007bff;
+  --color-dark: #0d1a26;
+  --color-light: #f4f4f4;
+}
+
+/* === Reset de base === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: var(--color-light);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* === Navbar === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--color-dark);
+  color: white;
+  position: relative;     /* ✅ ضروري */
+  z-index: 3;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-secondary);
+  transition: left 0.4s ease;
+}
+
+.nav-links a:hover::after {
+  left: 0;
+}
+
+.nav-links a:hover {
+  color: var(--color-secondary);
+}
+
+
+/* === Hero avec overlay === */
+.hero {
+  position: relative;
+  background: url('images/hero.jpg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+}
+
+/* === Section Services & autres === */
+.services-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+
+.services-section h2 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.services-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.services-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-secondary); /* ou chi color bghiti */
+  transition: left 0.4s ease;
+}
+
+.services-section h2:hover::after {
+  left: 0;
+}
+
+.services-section h2:hover {
+  color: var(--color-secondary);
+}
+
+.service-card {
+  background-color: #f9f9f9;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  width: 280px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* === Boutons secondaires === */
+.btn-secondary {
+  display: inline-block;
+  background-color: var(--color-secondary);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #0056b3;
+}
+
+/* === Footer === */
+footer {
+  background-color: var(--color-dark);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  margin-top: auto;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    padding: 5px 0;
+  }
+
+  
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .services-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card {
+    width: 90%;
+  }
+}
+
+.back-to-top {
+  opacity: 0.5;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: var(--color-secondary);
+  color: white;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+  background-color: #0056b3;
+}
+
+.contact-section {
+  padding: 60px 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+  border-bottom: 3px solid var(--color-primary);
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  resize: none; /* باش textarea ما تكبرش */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-secondary);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+.contact-form button {
+  align-self: flex-start;
+}
+
+
+.galerie-section {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.galerie-section h2 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.galerie-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-secondary);
+  transition: left 0.4s ease;
+}
+
+.galerie-section h2:hover::after {
+  left: 0;
+}
+
+.galerie-section h2:hover {
+  color: var(--color-secondary);
+}
+
+.galerie-grid {
+  column-count: 3;
+  column-gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.galerie-grid img {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  break-inside: avoid;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+
+
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden; /* مهم باش يخبي أي حاجة كتخرج من الصورة */
+}
+
+.image-wrapper img {
+  display: block;
+  width: 100%;
+  transition: filter 0.3s ease;
+}
+
+.image-wrapper:hover img {
+  filter: brightness(0.8); /* خفف شوية باش تبقى واضحة */
+}
+
+.image-wrapper .overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px; /* خاص يكون نفس الحجم باش يطابق الصورة */
+  background: rgba(0, 90, 156, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.image-wrapper:hover .overlay {
+  opacity: 1;
+}
+
+.image-wrapper .overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.image-wrapper:hover .overlay-text {
+  opacity: 1;
+}
+
+
+
+
+.map-section {
+  padding: 60px 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.map-section h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+  border-bottom: 3px solid var(--color-primary);
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.map-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+
+.galerie-grid img:hover {
+  transform: scale(1.03);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .galerie-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 صور فـ صف ف الهاتف */
+  }
+}
+
+@media (max-width: 480px) {
+  .galerie-grid {
+    grid-template-columns: 1fr; /* صورة وحدة فـ الهاتف الصغير */
+  }
+}
+
+
+/* Lightbox CSS */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none; /* باش متبقاش clickable وهي مخفية */
+}
+
+.lightbox.visible {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.lightbox .prev,
+.lightbox .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  background: rgba(0,0,0,0.4);
+  padding: 10px 20px;
+  border-radius: 50px;
+  z-index: 1000;
+  transition: background 0.3s;
+}
+
+.lightbox .prev:hover,
+.lightbox .next:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.lightbox .prev {
+  left: 30px;
+}
+
+.lightbox .next {
+  right: 30px;
+}
+
+
+.info-contact {
+  padding: 40px 20px;
+  background-color: #fff;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.info-contact h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+  border-bottom: 3px solid var(--color-primary);
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 20px auto 0;
+  max-width: 500px;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.contact-list li strong {
+  color: var(--color-dark);
+}
+.contact-list li a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+.contact-list li a:hover {
+  text-decoration: underline;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logo-img {
+  filter: brightness(0) invert(1);
+  width: 100px; /* t9dr tbddlha 7asab logo */
+  height: auto;
+  margin-right: 10px;
+}
+
+
+.devis-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.devis-section h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.devis-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.devis-form input,
+.devis-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.devis-form button {
+  align-self: flex-start;
+  background-color: var(--color-secondary);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.devis-form button:hover {
+  background-color: #0056b3;
+}
+
+
+.btn-animated {
+  background-color: white;
+  color: #005a9c;
+  border: 2px solid #005a9c;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  z-index: 0;
+}
+
+.btn-animated::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #3399ff 0%, #0066cc 50%, #3399ff 100%);
+  transition: left 0.6s ease;
+  z-index: -1;
+  border-radius: 6px;
+}
+
+.btn-animated:hover::before {
+  left: 0;
+}
+
+.btn-animated:hover {
+  color: white;
+  border-color: transparent;
+  mix-blend-mode:normal;
+}
+
+.back-to-top {
+  opacity: 0.5;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: white;  /* bda byad */
+  color: #005a9c;           /* color primaire bleu */
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 10;
+  transition: color 0.3s ease;
+  cursor: pointer;
+
+  /* position relative needed for ::before */
+  position: fixed; /* keep fixed */
+  overflow: hidden;
+}
+
+.back-to-top::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #3399ff 0%, #0066cc 50%, #3399ff 100%);
+  transition: left 0.6s ease;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.back-to-top:hover::before {
+  left: 0;
+}
+
+.back-to-top:hover {
+  color: white;
+  opacity: 1;
+}
+
+
+.nav-links a.active {
+  color: var(--color-secondary);
+}
+
+.nav-links a.active::after {
+  left: 0;
+}
+
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg);
+}
+
+
+body.dark {
+  background-color: #0d1a26; /* لون خلفية غامق */
+  color: #f4f4f4;           /* النصوص ضاوية */
+}
+
+body.dark .hero::before {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode {
+  background-color: #222;
+  color: white;
+}
+
+
+body.dark .services-section,
+body.dark .contact-section,
+body.dark .galerie-section,
+body.dark .info-contact,
+body.dark .map-section {
+  background-color: #1a1a1a;
+  color: #f4f4f4;
+}
+
+body.dark .service-card {
+  background-color: #222;
+  color: #eee;
+}
+
+body.dark .navbar {
+  background-color: #000;
+  color: white;
+}
+
+body.dark .nav-links a {
+  color: white;
+}
+
+body.dark .nav-links a.active {
+  color: var(--color-secondary);
+}
+
+body.dark .footer {
+  background-color: #000;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark .navbar {
+  background-color: #1e1e1e;
+}
+
+body.dark .hero::before {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+body.dark .service-card,
+body.dark .devis-section,
+body.dark .contact-section,
+body.dark .galerie-section {
+  background-color: #222;
+  color: #ddd;
+}
+
+body.dark footer {
+  background-color: #1e1e1e;
+}
+
+body.dark .btn-secondary {
+  background-color: #333;
+}
+
+body.dark .btn-secondary:hover {
+  background-color: #555;
+}
+
+body.dark .contact-list li strong {
+  color: #ffffff;  /* nssrah f dark mode */
+}
+
+body.dark .contact-list li a {
+  color: #66bfff;  /* bleu clair pour liens */
+}
+
+.lightbox .caption {
+  margin-top: 15px;
+  color: #ddd;
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 90%;
+}
+
+#loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px); /* 👈 l blur li bghiti */
+  background-color: rgba(255, 255, 255, 0.2); /* 👈 transparency bach yban blur */
+  z-index: 9999;
+}
+
+#loader img {
+  width: 250px;
+  animation: spin 2s linear infinite;
+}
+
+/* rotation animation */
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+
+
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px); /* كيبدا 50px على اليسار */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* يوصل للمكان الطبيعي */
+  }
+}
+
+.element {
+  animation: fadeSlideIn 1s ease forwards;
+}
